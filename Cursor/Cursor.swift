@@ -40,7 +40,7 @@ public final class Cursor<TItem>: CursorType {
             
             return source
         }
-        .subscribeOn(self.scheduler)
+        .subscribeOn(scheduler)
         .asSingle()
     }
     
