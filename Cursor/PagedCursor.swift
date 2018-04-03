@@ -8,15 +8,11 @@ public final class PagedCursor<TItem>: CursorType {
     private let scheduler: SerialDispatchQueueScheduler
     private let sourceCursor: Cursor<Page>
     private let pageSize: Int
+    private let disposeBag = DisposeBag()
+    private let itemsSubject = ReplaySubject<[CursorResult<Item>]>.create(bufferSize: 1)
     
     public var itemsObservable: Observable<[CursorResult<Item>]> {
-        return sourceCursor.itemsObservable
-            .subscribeOn(scheduler)
-            .map { [unowned self] pages in
-                return pages.reduce([]) { (result, pageResult) -> [CursorResult<Item>] in
-                    return result + self.unwrap(result: pageResult)
-                }
-        }
+        return itemsSubject.asObservable()
     }
     
     init(pageSize: Int,
@@ -25,6 +21,21 @@ public final class PagedCursor<TItem>: CursorType {
         self.pageSize = pageSize
         self.scheduler = scheduler
         self.sourceCursor = sourceCursor
+        
+        sourceCursor.itemsObservable
+            .observeOn(scheduler)
+            .map { [weak self] pages in
+                guard let strongSelf = self else {
+                    return []
+                }
+                
+                return pages.reduce([]) { (result, pageResult) -> [CursorResult<Item>] in
+                    return result + strongSelf.unwrap(result: pageResult)
+                }
+            }
+            .multicast(itemsSubject)
+            .connect()
+            .disposed(by: disposeBag)
     }
     
     public func loadItem(at index: Int) -> Single<Item?> {
@@ -42,7 +53,7 @@ public final class PagedCursor<TItem>: CursorType {
     }
     
     private func unwrap(page: Page) -> [Item?] {
-        return (0...pageSize)
+        return (0..<pageSize)
             .map { page[safe: $0] }
     }
     
