@@ -27,6 +27,10 @@
 		1886DF82206EFCA600B6BF82 /* Cursor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1847D1BD20652572008F65E8 /* Cursor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18BA0CB920727A12007AEC8B /* PagedCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CB820727A12007AEC8B /* PagedCursor.swift */; };
 		18BA0CBB20727A5C007AEC8B /* PagedCursor+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CBA20727A5C007AEC8B /* PagedCursor+Factory.swift */; };
+		18BA0CBD20760630007AEC8B /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CBC20760630007AEC8B /* Reactor.swift */; };
+		18BA0CBF2076071D007AEC8B /* AssociatedObjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CBE2076071D007AEC8B /* AssociatedObjectStore.swift */; };
+		18BA0CC120760F4D007AEC8B /* Reactor+Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CC020760F4D007AEC8B /* Reactor+Implementation.swift */; };
+		18BA0CC320762F09007AEC8B /* ViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CC220762F09007AEC8B /* ViewReactor.swift */; };
 		3EFD00193F68E26D526F869C /* Pods_CursorExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 004FBDF33BA1F7A4136B5768 /* Pods_CursorExample.framework */; };
 		C879CE5067399ADEE01D1AB7 /* Pods_Cursor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22214399657D7F8414F23A37 /* Pods_Cursor.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +92,10 @@
 		1847D1CD20652572008F65E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18BA0CB820727A12007AEC8B /* PagedCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedCursor.swift; sourceTree = "<group>"; };
 		18BA0CBA20727A5C007AEC8B /* PagedCursor+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PagedCursor+Factory.swift"; sourceTree = "<group>"; };
+		18BA0CBC20760630007AEC8B /* Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
+		18BA0CBE2076071D007AEC8B /* AssociatedObjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObjectStore.swift; sourceTree = "<group>"; };
+		18BA0CC020760F4D007AEC8B /* Reactor+Implementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactor+Implementation.swift"; sourceTree = "<group>"; };
+		18BA0CC220762F09007AEC8B /* ViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReactor.swift; sourceTree = "<group>"; };
 		22214399657D7F8414F23A37 /* Pods_Cursor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cursor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		282B5AE210314CA73C3D4CD4 /* Pods-CursorExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CursorExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CursorExample/Pods-CursorExample.release.xcconfig"; sourceTree = "<group>"; };
 		984E592656CE48804AAAAB60 /* Pods-Cursor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cursor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cursor/Pods-Cursor.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +136,7 @@
 			children = (
 				1840B44C206E89BC00359E42 /* AppDelegate.swift */,
 				1840B44E206E89BC00359E42 /* ViewController.swift */,
+				18BA0CC220762F09007AEC8B /* ViewReactor.swift */,
 				1840B450206E89BC00359E42 /* Main.storyboard */,
 				1840B453206E89BC00359E42 /* Assets.xcassets */,
 				1840B455206E89BC00359E42 /* LaunchScreen.storyboard */,
@@ -173,6 +182,9 @@
 				18BA0CBA20727A5C007AEC8B /* PagedCursor+Factory.swift */,
 				1840B444206E62CE00359E42 /* PagedCursorEngine.swift */,
 				1840B43E206D7EE300359E42 /* Array+Extension.swift */,
+				18BA0CBC20760630007AEC8B /* Reactor.swift */,
+				18BA0CC020760F4D007AEC8B /* Reactor+Implementation.swift */,
+				18BA0CBE2076071D007AEC8B /* AssociatedObjectStore.swift */,
 			);
 			path = Cursor;
 			sourceTree = "<group>";
@@ -447,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1840B44F206E89BC00359E42 /* ViewController.swift in Sources */,
+				18BA0CC320762F09007AEC8B /* ViewReactor.swift in Sources */,
 				1840B44D206E89BC00359E42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,9 +475,12 @@
 				1840B43F206D7EE300359E42 /* Array+Extension.swift in Sources */,
 				1840B445206E62CE00359E42 /* PagedCursorEngine.swift in Sources */,
 				1840B437206D7E2C00359E42 /* CursorType.swift in Sources */,
+				18BA0CBD20760630007AEC8B /* Reactor.swift in Sources */,
 				18BA0CB920727A12007AEC8B /* PagedCursor.swift in Sources */,
 				18BA0CBB20727A5C007AEC8B /* PagedCursor+Factory.swift in Sources */,
+				18BA0CBF2076071D007AEC8B /* AssociatedObjectStore.swift in Sources */,
 				1840B443206E211A00359E42 /* Cursor+Factory.swift in Sources */,
+				18BA0CC120760F4D007AEC8B /* Reactor+Implementation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,31 +1,36 @@
 
 import Cursor
 import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
-
+    @IBOutlet private var countButton: UIButton!
+    @IBOutlet private var countLabel: UILabel!
+    
+    private let reactor = ViewReactor()
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cursor = PagedCursor { range in
-            return Observable.just((range.lowerBound..<range.upperBound).map { $0 })
-                .delay(3, scheduler: MainScheduler.instance)
-        }
-        
-        _ = cursor.itemsObservable
-            .debug("itemsObservable", trimOutput: true)
-            .subscribe()
-        
-        _ = cursor.loadItems(in: 0..<20)
-            .debug("loadItems", trimOutput: true)
-            .subscribe()
+        bindActions()
+        bindState()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func bindActions() {
+        countButton.rx
+            .controlEvent(.touchUpInside)
+            .map { ViewReactor.Action.request }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
-
-
+    
+    func bindState() {
+        reactor.state
+            .map { String($0.count) }
+            .distinctUntilChanged()
+            .bind(to: countLabel.rx.text)
+            .disposed(by: disposeBag)
+    }
 }
 
