@@ -16,7 +16,7 @@ public final class PagedCursor<TItem>: CursorType {
     }
     
     init(pageSize: Int,
-         scheduler: SerialDispatchQueueScheduler = MainScheduler.instance,
+         scheduler: SerialDispatchQueueScheduler = SerialDispatchQueueScheduler(qos: .default),
          sourceCursor: Cursor<Page>) {
         self.pageSize = pageSize
         self.scheduler = scheduler

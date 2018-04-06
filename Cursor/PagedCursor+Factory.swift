@@ -10,7 +10,7 @@ public extension PagedCursor {
         pageSize: Int = PagedCursorConstants.defaultPageSize,
         pages: [CursorResult<[Item]>] = [],
         anchor: TAnchor? = nil,
-        scheduler: SerialDispatchQueueScheduler = MainScheduler.instance,
+        scheduler: SerialDispatchQueueScheduler = SerialDispatchQueueScheduler(qos: .default),
         sourceFactory: @escaping PagedCursorEngine<TItem, TAnchor>.SourceFactory) {
         
         self.init(
@@ -33,7 +33,7 @@ public extension PagedCursor {
     convenience init(
         pageSize: Int = PagedCursorConstants.defaultPageSize,
         pages: [CursorResult<[Item]>] = [],
-        scheduler: SerialDispatchQueueScheduler = MainScheduler.instance,
+        scheduler: SerialDispatchQueueScheduler = SerialDispatchQueueScheduler(qos: .default),
         sourceFactory: @escaping (Range<Int>) -> Observable<[TItem]>) {
         
         self.init(

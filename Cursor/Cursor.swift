@@ -15,7 +15,7 @@ public final class Cursor<TItem>: CursorType {
     }
     
     public init(items: [CursorResult<Item>] = [],
-         scheduler: SerialDispatchQueueScheduler = MainScheduler.instance,
+         scheduler: SerialDispatchQueueScheduler = SerialDispatchQueueScheduler(qos: .default),
          sourceFactory: @escaping SourceFactory) {
         itemsVariable = Variable(items)
         self.sourceFactory = sourceFactory

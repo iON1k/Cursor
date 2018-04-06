@@ -4,7 +4,7 @@ import RxSwift
 public extension Cursor {
     convenience init(
         items: [Item],
-        scheduler: SerialDispatchQueueScheduler = MainScheduler.instance) {
+        scheduler: SerialDispatchQueueScheduler = SerialDispatchQueueScheduler(qos: .default)) {
         self.init(
             items: items.map { .item($0) },
             scheduler: scheduler) {

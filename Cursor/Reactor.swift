@@ -33,6 +33,4 @@ public protocol Reactor: class, AssociatedObjectStore {
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation>
     
     func reduce(state: State, mutation: Mutation) -> State
-    
-    func transform(stateTransition: Observable<StateTransition>) -> Observable<StateTransition>
 }

@@ -8,8 +8,14 @@ fileprivate enum ReactorAssociatedKeys {
 }
 
 public extension Reactor {
-    public var action: PublishSubject<Action> {
-        return associatedObject(forKey: &ReactorAssociatedKeys.action, default: .init())
+    public var action: AnyObserver<Action> {
+        return actionSubject
+            .asObserver()
+    }
+    
+    public var actionOut: Observable<Action> {
+        return actionSubject
+            .asObservable()
     }
     
     var stateTransition: Observable<StateTransition> {
@@ -36,28 +42,25 @@ public extension Reactor {
         return state
     }
     
-    func transform(stateTransition: Observable<StateTransition>) -> Observable<StateTransition> {
-        return stateTransition
-    }
-    
     private var disposeBag: DisposeBag {
         return associatedObject(forKey: &ReactorAssociatedKeys.disposeBag, default: .init())
     }
+    
+    private var actionSubject: PublishSubject<Action> {
+        return associatedObject(forKey: &ReactorAssociatedKeys.action, default: .init())
+    }
 
     private func createStateTransitionObservable() -> Observable<StateTransition> {
-        let transformedAction = self.transform(action: action.asObservable())
-        
-        let mutation = transformedAction
+        let mutation = transform(action: actionOut)
             .flatMap { [weak self] action -> Observable<Mutation> in
                 guard let strongSelf = self else { return .empty() }
                 return strongSelf
                     .mutate(action: action)
                     .catchError { _ in .empty() }
             }
-        let transformedMutation = transform(mutation: mutation)
         
         let initialStateTransition = StateTransition.initial(state: createInitialState())
-        let stateTransition = transformedMutation
+        let stateTransition = transform(mutation: mutation)
             .scan(initialStateTransition) { [weak self] stateTransition, mutation -> StateTransition in
                 guard let strongSelf = self else { return stateTransition }
                 let newState = strongSelf
@@ -67,15 +70,13 @@ public extension Reactor {
             }
             .catchError { _ in .empty() }
             .startWith(initialStateTransition)
-        
-        let transformedStateTransition = transform(stateTransition: stateTransition)
             .replay(1)
         
-        transformedStateTransition
+        stateTransition
             .connect()
             .disposed(by: disposeBag)
         
-        return transformedStateTransition
+        return stateTransition
     }
 }
 

@@ -17,7 +17,7 @@ public final class PagedCursorEngine<TItem, TAnchor> {
     
     public init(pageSize: Int,
                 anchor: TAnchor? = nil,
-                scheduler: SerialDispatchQueueScheduler = MainScheduler.instance,
+                scheduler: SerialDispatchQueueScheduler = SerialDispatchQueueScheduler(qos: .default),
                 sourceFactory: @escaping SourceFactory) {
         self.pageSize = pageSize
         self.anchor = anchor
