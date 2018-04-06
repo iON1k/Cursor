@@ -42,6 +42,10 @@ public extension Reactor {
         return state
     }
     
+    func transform(stateTransition: Observable<StateTransition>) -> Observable<StateTransition> {
+        return stateTransition
+    }
+    
     private var disposeBag: DisposeBag {
         return associatedObject(forKey: &ReactorAssociatedKeys.disposeBag, default: .init())
     }
@@ -70,13 +74,15 @@ public extension Reactor {
             }
             .catchError { _ in .empty() }
             .startWith(initialStateTransition)
-            .replay(1)
         
-        stateTransition
+        let transformedStateTransition = transform(stateTransition: stateTransition)
+        
+        transformedStateTransition
+            .replay(1)
             .connect()
             .disposed(by: disposeBag)
         
-        return stateTransition
+        return transformedStateTransition
     }
 }
 
