@@ -24,7 +24,7 @@ public protocol Reactor: class, AssociatedObjectStore {
     
     typealias StateTransition = ReactorStateTransition<State, Mutation>
     
-    func createInitialState() -> State
+    var initialState: State { get }
     
     func transform(action: Observable<Action>) -> Observable<Action>
     

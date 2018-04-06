@@ -63,7 +63,7 @@ public extension Reactor {
                     .catchError { _ in .empty() }
             }
         
-        let initialStateTransition = StateTransition.initial(state: createInitialState())
+        let initialStateTransition = StateTransition.initial(state: initialState)
         let stateTransition = transform(mutation: mutation)
             .scan(initialStateTransition) { [weak self] stateTransition, mutation -> StateTransition in
                 guard let strongSelf = self else { return stateTransition }

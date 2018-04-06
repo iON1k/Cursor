@@ -11,7 +11,7 @@ class ViewReactor: Reactor {
         let count: Int
     }
     
-    func createInitialState() -> ViewReactor.State {
+    var initialState: State {
         return State(count: 1)
     }
     
