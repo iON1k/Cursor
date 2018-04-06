@@ -26,6 +26,8 @@ public protocol Reactor: class, AssociatedObjectStore {
     
     var initialState: State { get }
     
+    var workingScheduler: SerialDispatchQueueScheduler { get }
+    
     func transform(action: Observable<Action>) -> Observable<Action>
     
     func mutate(action: Action) -> Observable<Mutation>

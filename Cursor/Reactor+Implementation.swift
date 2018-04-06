@@ -26,6 +26,10 @@ public extension Reactor {
         return stateTransition.map { return $0.state }
     }
     
+    var workingScheduler: SerialDispatchQueueScheduler {
+        return MainScheduler.instance
+    }
+    
     func transform(action: Observable<Action>) -> Observable<Action> {
         return action
     }
@@ -56,6 +60,7 @@ public extension Reactor {
 
     private func createStateTransitionObservable() -> Observable<StateTransition> {
         let mutation = transform(action: actionOut)
+            .observeOn(workingScheduler)
             .flatMap { [weak self] action -> Observable<Mutation> in
                 guard let strongSelf = self else { return .empty() }
                 return strongSelf
@@ -65,6 +70,7 @@ public extension Reactor {
         
         let initialStateTransition = StateTransition.initial(state: initialState)
         let stateTransition = transform(mutation: mutation)
+            .observeOn(workingScheduler)
             .scan(initialStateTransition) { [weak self] stateTransition, mutation -> StateTransition in
                 guard let strongSelf = self else { return stateTransition }
                 let newState = strongSelf
