@@ -15,12 +15,8 @@ public enum ReactorStateTransition<State, Mutation> {
     }
 }
 
-public protocol Reactor: class, AssociatedObjectStore {
-    associatedtype Action
-    
+public protocol ReactorType: class, AssociatedObjectStore, InOutConvertibleType {
     associatedtype Mutation = Action
-    
-    associatedtype State
     
     typealias StateTransition = ReactorStateTransition<State, Mutation>
     

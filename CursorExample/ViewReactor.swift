@@ -2,7 +2,7 @@
 import Cursor
 import RxSwift
 
-class ViewReactor: Reactor {
+class ViewReactor: ReactorType {
     enum Action {
         case request
     }

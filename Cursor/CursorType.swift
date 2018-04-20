@@ -1,7 +1,7 @@
 
 import RxSwift
 
-public protocol CursorType: CursorConvertable {
+public protocol CursorType: CursorConvertableType {
     var itemsObservable: Observable<[CursorResult<Item>]> { get }
     
     func loadItem(at index: Int) -> Single<Item?>

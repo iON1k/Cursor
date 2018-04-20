@@ -7,15 +7,10 @@ fileprivate enum ReactorAssociatedKeys {
     static var disposeBag = "disposeBag"
 }
 
-public extension Reactor {
-    public var action: AnyObserver<Action> {
+public extension ReactorType {
+    var action: AnyObserver<Action> {
         return actionSubject
             .asObserver()
-    }
-    
-    public var actionOut: Observable<Action> {
-        return actionSubject
-            .asObservable()
     }
     
     var stateTransition: Observable<StateTransition> {
@@ -59,7 +54,7 @@ public extension Reactor {
     }
 
     private func createStateTransitionObservable() -> Observable<StateTransition> {
-        let mutation = transform(action: actionOut)
+        let mutation = transform(action: actionSubject.asObservable())
             .observeOn(workingScheduler)
             .flatMap { [weak self] action -> Observable<Mutation> in
                 guard let strongSelf = self else { return .empty() }
@@ -92,7 +87,17 @@ public extension Reactor {
     }
 }
 
-public extension Reactor where Action == Mutation {
+public extension ReactorType {
+    func asInOut() -> InOut<Action, State> {
+        return InOut(action: action, state: state)
+    }
+    
+    func asInOutWithTransition() -> InOut<Action, StateTransition> {
+        return InOut(action: action, state: stateTransition)
+    }
+}
+
+public extension ReactorType where Action == Mutation {
     func mutate(action: Action) -> Observable<Mutation> {
         return .just(action)
     }

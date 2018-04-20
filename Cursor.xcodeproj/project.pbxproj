@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180750A22088D408004E8D92 /* LoadingBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180750A12088D408004E8D92 /* LoadingBindable.swift */; };
+		180750A42088EAC8004E8D92 /* LoadingStateViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180750A32088EAC8004E8D92 /* LoadingStateViewType.swift */; };
+		180750A62088ECAD004E8D92 /* LoadingControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180750A52088ECAD004E8D92 /* LoadingControllerType.swift */; };
+		180750A82088EE25004E8D92 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180750A72088EE25004E8D92 /* UIViewController+Rx.swift */; };
 		1840B433206D7DF300359E42 /* CursorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840B432206D7DF300359E42 /* CursorResult.swift */; };
-		1840B435206D7E1200359E42 /* CursorConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840B434206D7E1200359E42 /* CursorConvertable.swift */; };
+		1840B435206D7E1200359E42 /* CursorConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840B434206D7E1200359E42 /* CursorConvertableType.swift */; };
 		1840B437206D7E2C00359E42 /* CursorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840B436206D7E2C00359E42 /* CursorType.swift */; };
 		1840B439206D7E5700359E42 /* AnyCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840B438206D7E5700359E42 /* AnyCursor.swift */; };
 		1840B43D206D7EBF00359E42 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840B43C206D7EBF00359E42 /* Cursor.swift */; };
@@ -25,11 +29,17 @@
 		1847D1CE20652572008F65E8 /* Cursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1847D1C020652572008F65E8 /* Cursor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1886DF81206EFCA600B6BF82 /* Cursor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1847D1BD20652572008F65E8 /* Cursor.framework */; };
 		1886DF82206EFCA600B6BF82 /* Cursor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1847D1BD20652572008F65E8 /* Cursor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18A32AA32088C0A90059D615 /* LoadingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AA22088C0A90059D615 /* LoadingReactor.swift */; };
+		18A32AA52088CB2E0059D615 /* InOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AA42088CB2E0059D615 /* InOut.swift */; };
+		18A32AA92088CEA80059D615 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AA82088CEA80059D615 /* LoadingState.swift */; };
+		18A32AAB2088CF150059D615 /* LoadingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AAA2088CF150059D615 /* LoadingAction.swift */; };
+		18A32AAD2088CFFB0059D615 /* InOutConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AAC2088CFFB0059D615 /* InOutConvertibleType.swift */; };
+		18A32AAF2088D1060059D615 /* InOutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A32AAE2088D1060059D615 /* InOutType.swift */; };
 		18BA0CB920727A12007AEC8B /* PagedCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CB820727A12007AEC8B /* PagedCursor.swift */; };
 		18BA0CBB20727A5C007AEC8B /* PagedCursor+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CBA20727A5C007AEC8B /* PagedCursor+Factory.swift */; };
-		18BA0CBD20760630007AEC8B /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CBC20760630007AEC8B /* Reactor.swift */; };
+		18BA0CBD20760630007AEC8B /* ReactorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CBC20760630007AEC8B /* ReactorType.swift */; };
 		18BA0CBF2076071D007AEC8B /* AssociatedObjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CBE2076071D007AEC8B /* AssociatedObjectStore.swift */; };
-		18BA0CC120760F4D007AEC8B /* Reactor+Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CC020760F4D007AEC8B /* Reactor+Implementation.swift */; };
+		18BA0CC120760F4D007AEC8B /* ReactorType+Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CC020760F4D007AEC8B /* ReactorType+Implementation.swift */; };
 		18BA0CC320762F09007AEC8B /* ViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA0CC220762F09007AEC8B /* ViewReactor.swift */; };
 		3EFD00193F68E26D526F869C /* Pods_CursorExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 004FBDF33BA1F7A4136B5768 /* Pods_CursorExample.framework */; };
 		C879CE5067399ADEE01D1AB7 /* Pods_Cursor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22214399657D7F8414F23A37 /* Pods_Cursor.framework */; };
@@ -69,8 +79,12 @@
 /* Begin PBXFileReference section */
 		004FBDF33BA1F7A4136B5768 /* Pods_CursorExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CursorExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1B8A570E46D1C23301293C /* Pods-CursorExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CursorExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CursorExample/Pods-CursorExample.debug.xcconfig"; sourceTree = "<group>"; };
+		180750A12088D408004E8D92 /* LoadingBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingBindable.swift; sourceTree = "<group>"; };
+		180750A32088EAC8004E8D92 /* LoadingStateViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStateViewType.swift; sourceTree = "<group>"; };
+		180750A52088ECAD004E8D92 /* LoadingControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingControllerType.swift; sourceTree = "<group>"; };
+		180750A72088EE25004E8D92 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		1840B432206D7DF300359E42 /* CursorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorResult.swift; sourceTree = "<group>"; };
-		1840B434206D7E1200359E42 /* CursorConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorConvertable.swift; sourceTree = "<group>"; };
+		1840B434206D7E1200359E42 /* CursorConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorConvertableType.swift; sourceTree = "<group>"; };
 		1840B436206D7E2C00359E42 /* CursorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorType.swift; sourceTree = "<group>"; };
 		1840B438206D7E5700359E42 /* AnyCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCursor.swift; sourceTree = "<group>"; };
 		1840B43C206D7EBF00359E42 /* Cursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
@@ -90,11 +104,17 @@
 		1847D1C620652572008F65E8 /* CursorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CursorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1847D1CB20652572008F65E8 /* CursorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorTests.swift; sourceTree = "<group>"; };
 		1847D1CD20652572008F65E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18A32AA22088C0A90059D615 /* LoadingReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingReactor.swift; sourceTree = "<group>"; };
+		18A32AA42088CB2E0059D615 /* InOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InOut.swift; sourceTree = "<group>"; };
+		18A32AA82088CEA80059D615 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		18A32AAA2088CF150059D615 /* LoadingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAction.swift; sourceTree = "<group>"; };
+		18A32AAC2088CFFB0059D615 /* InOutConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InOutConvertibleType.swift; sourceTree = "<group>"; };
+		18A32AAE2088D1060059D615 /* InOutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InOutType.swift; sourceTree = "<group>"; };
 		18BA0CB820727A12007AEC8B /* PagedCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedCursor.swift; sourceTree = "<group>"; };
 		18BA0CBA20727A5C007AEC8B /* PagedCursor+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PagedCursor+Factory.swift"; sourceTree = "<group>"; };
-		18BA0CBC20760630007AEC8B /* Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
+		18BA0CBC20760630007AEC8B /* ReactorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorType.swift; sourceTree = "<group>"; };
 		18BA0CBE2076071D007AEC8B /* AssociatedObjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObjectStore.swift; sourceTree = "<group>"; };
-		18BA0CC020760F4D007AEC8B /* Reactor+Implementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactor+Implementation.swift"; sourceTree = "<group>"; };
+		18BA0CC020760F4D007AEC8B /* ReactorType+Implementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactorType+Implementation.swift"; sourceTree = "<group>"; };
 		18BA0CC220762F09007AEC8B /* ViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReactor.swift; sourceTree = "<group>"; };
 		22214399657D7F8414F23A37 /* Pods_Cursor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cursor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		282B5AE210314CA73C3D4CD4 /* Pods-CursorExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CursorExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CursorExample/Pods-CursorExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +193,7 @@
 				1847D1C020652572008F65E8 /* Cursor.h */,
 				1847D1C120652572008F65E8 /* Info.plist */,
 				1840B432206D7DF300359E42 /* CursorResult.swift */,
-				1840B434206D7E1200359E42 /* CursorConvertable.swift */,
+				1840B434206D7E1200359E42 /* CursorConvertableType.swift */,
 				1840B436206D7E2C00359E42 /* CursorType.swift */,
 				1840B438206D7E5700359E42 /* AnyCursor.swift */,
 				1840B43C206D7EBF00359E42 /* Cursor.swift */,
@@ -182,9 +202,19 @@
 				18BA0CBA20727A5C007AEC8B /* PagedCursor+Factory.swift */,
 				1840B444206E62CE00359E42 /* PagedCursorEngine.swift */,
 				1840B43E206D7EE300359E42 /* Array+Extension.swift */,
-				18BA0CBC20760630007AEC8B /* Reactor.swift */,
-				18BA0CC020760F4D007AEC8B /* Reactor+Implementation.swift */,
+				18BA0CBC20760630007AEC8B /* ReactorType.swift */,
+				18BA0CC020760F4D007AEC8B /* ReactorType+Implementation.swift */,
 				18BA0CBE2076071D007AEC8B /* AssociatedObjectStore.swift */,
+				18A32AAC2088CFFB0059D615 /* InOutConvertibleType.swift */,
+				18A32AAE2088D1060059D615 /* InOutType.swift */,
+				18A32AA42088CB2E0059D615 /* InOut.swift */,
+				18A32AA22088C0A90059D615 /* LoadingReactor.swift */,
+				18A32AA82088CEA80059D615 /* LoadingState.swift */,
+				18A32AAA2088CF150059D615 /* LoadingAction.swift */,
+				180750A12088D408004E8D92 /* LoadingBindable.swift */,
+				180750A32088EAC8004E8D92 /* LoadingStateViewType.swift */,
+				180750A52088ECAD004E8D92 /* LoadingControllerType.swift */,
+				180750A72088EE25004E8D92 /* UIViewController+Rx.swift */,
 			);
 			path = Cursor;
 			sourceTree = "<group>";
@@ -469,18 +499,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				1840B433206D7DF300359E42 /* CursorResult.swift in Sources */,
-				1840B435206D7E1200359E42 /* CursorConvertable.swift in Sources */,
+				18A32AAB2088CF150059D615 /* LoadingAction.swift in Sources */,
+				1840B435206D7E1200359E42 /* CursorConvertableType.swift in Sources */,
 				1840B439206D7E5700359E42 /* AnyCursor.swift in Sources */,
 				1840B43D206D7EBF00359E42 /* Cursor.swift in Sources */,
 				1840B43F206D7EE300359E42 /* Array+Extension.swift in Sources */,
+				180750A82088EE25004E8D92 /* UIViewController+Rx.swift in Sources */,
+				18A32AA32088C0A90059D615 /* LoadingReactor.swift in Sources */,
 				1840B445206E62CE00359E42 /* PagedCursorEngine.swift in Sources */,
+				18A32AA52088CB2E0059D615 /* InOut.swift in Sources */,
+				180750A42088EAC8004E8D92 /* LoadingStateViewType.swift in Sources */,
 				1840B437206D7E2C00359E42 /* CursorType.swift in Sources */,
-				18BA0CBD20760630007AEC8B /* Reactor.swift in Sources */,
+				18A32AAF2088D1060059D615 /* InOutType.swift in Sources */,
+				180750A22088D408004E8D92 /* LoadingBindable.swift in Sources */,
+				18BA0CBD20760630007AEC8B /* ReactorType.swift in Sources */,
 				18BA0CB920727A12007AEC8B /* PagedCursor.swift in Sources */,
 				18BA0CBB20727A5C007AEC8B /* PagedCursor+Factory.swift in Sources */,
+				180750A62088ECAD004E8D92 /* LoadingControllerType.swift in Sources */,
+				18A32AA92088CEA80059D615 /* LoadingState.swift in Sources */,
 				18BA0CBF2076071D007AEC8B /* AssociatedObjectStore.swift in Sources */,
 				1840B443206E211A00359E42 /* Cursor+Factory.swift in Sources */,
-				18BA0CC120760F4D007AEC8B /* Reactor+Implementation.swift in Sources */,
+				18BA0CC120760F4D007AEC8B /* ReactorType+Implementation.swift in Sources */,
+				18A32AAD2088CFFB0059D615 /* InOutConvertibleType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
