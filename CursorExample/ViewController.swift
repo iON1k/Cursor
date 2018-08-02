@@ -3,6 +3,10 @@ import Cursor
 import RxSwift
 import RxCocoa
 
+struct MyError: Error {
+    
+}
+
 class ViewController: UIViewController {
     @IBOutlet private var countButton: UIButton!
     @IBOutlet private var countLabel: UILabel!
@@ -26,7 +30,7 @@ class ViewController: UIViewController {
     }
     
     func bindState() {
-        reactor.state
+        reactor.stateObservable
             .map { String($0.count) }
             .distinctUntilChanged()
             .bind(to: countLabel.rx.text)

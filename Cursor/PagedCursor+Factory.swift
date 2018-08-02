@@ -6,12 +6,12 @@ public enum PagedCursorConstants {
 }
 
 public extension PagedCursor {
-    convenience init<TAnchor>(
+    convenience init<Anchor>(
         pageSize: Int = PagedCursorConstants.defaultPageSize,
         pages: [CursorResult<[Item]>] = [],
-        anchor: TAnchor? = nil,
+        anchor: Anchor? = nil,
         scheduler: SerialDispatchQueueScheduler = SerialDispatchQueueScheduler(qos: .default),
-        sourceFactory: @escaping PagedCursorEngine<TItem, TAnchor>.SourceFactory) {
+        sourceFactory: @escaping PagedCursorEngine<Item, Anchor>.SourceFactory) {
         
         self.init(
             pageSize: pageSize,
@@ -34,7 +34,7 @@ public extension PagedCursor {
         pageSize: Int = PagedCursorConstants.defaultPageSize,
         pages: [CursorResult<[Item]>] = [],
         scheduler: SerialDispatchQueueScheduler = SerialDispatchQueueScheduler(qos: .default),
-        sourceFactory: @escaping (Range<Int>) -> Observable<[TItem]>) {
+        sourceFactory: @escaping (Range<Int>) -> Observable<[Item]>) {
         
         self.init(
             pageSize: pageSize,

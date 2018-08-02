@@ -1,22 +1,22 @@
 
 import RxSwift
 
-public struct PagedCursorEngineResult<TItem, TAnchor> {
-    let items: [TItem]
-    let anchor: TAnchor
+public struct PagedCursorEngineResult<Item, Anchor> {
+    let items: [Item]
+    let anchor: Anchor
 }
 
-public final class PagedCursorEngine<TItem, TAnchor> {
-    public typealias SourceFactory = (Range<Int>, TAnchor?) -> Observable<PagedCursorEngineResult<TItem, TAnchor>>
+public final class PagedCursorEngine<Item, Anchor> {
+    public typealias SourceFactory = (Range<Int>, Anchor?) -> Observable<PagedCursorEngineResult<Item, Anchor>>
     
     private let pageSize: Int
-    private var anchor: TAnchor?
+    private var anchor: Anchor?
     private let scheduler: SerialDispatchQueueScheduler
     private let sourceFactory: SourceFactory
     private let isFirstPageLoading = Variable(false)
     
     public init(pageSize: Int,
-                anchor: TAnchor? = nil,
+                anchor: Anchor? = nil,
                 scheduler: SerialDispatchQueueScheduler = SerialDispatchQueueScheduler(qos: .default),
                 sourceFactory: @escaping SourceFactory) {
         self.pageSize = pageSize
@@ -25,7 +25,7 @@ public final class PagedCursorEngine<TItem, TAnchor> {
         self.sourceFactory = sourceFactory
     }
     
-    public func loadPage(at index: Int) -> Observable<[TItem]?> {
+    public func loadPage(at index: Int) -> Observable<[Item]?> {
         return Observable.deferred {
             if self.isFirstPageLoading.value {
                 return self.isFirstPageLoading
@@ -35,7 +35,7 @@ public final class PagedCursorEngine<TItem, TAnchor> {
                         self.loadPage(at: index)
                     }
             } else {
-                let source: Observable<PagedCursorEngineResult<TItem, TAnchor>>
+                let source: Observable<PagedCursorEngineResult<Item, Anchor>>
                 let range: Range = index * self.pageSize..<(index + 1) * self.pageSize
                 
                 if let anchor = self.anchor {

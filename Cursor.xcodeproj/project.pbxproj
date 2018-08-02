@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		180750A22088D408004E8D92 /* LoadingBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180750A12088D408004E8D92 /* LoadingBindable.swift */; };
-		180750A42088EAC8004E8D92 /* LoadingStateViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180750A32088EAC8004E8D92 /* LoadingStateViewType.swift */; };
-		180750A62088ECAD004E8D92 /* LoadingControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180750A52088ECAD004E8D92 /* LoadingControllerType.swift */; };
 		180750A82088EE25004E8D92 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180750A72088EE25004E8D92 /* UIViewController+Rx.swift */; };
 		1840B433206D7DF300359E42 /* CursorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840B432206D7DF300359E42 /* CursorResult.swift */; };
 		1840B435206D7E1200359E42 /* CursorConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840B434206D7E1200359E42 /* CursorConvertableType.swift */; };
@@ -79,9 +76,6 @@
 /* Begin PBXFileReference section */
 		004FBDF33BA1F7A4136B5768 /* Pods_CursorExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CursorExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1B8A570E46D1C23301293C /* Pods-CursorExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CursorExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CursorExample/Pods-CursorExample.debug.xcconfig"; sourceTree = "<group>"; };
-		180750A12088D408004E8D92 /* LoadingBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingBindable.swift; sourceTree = "<group>"; };
-		180750A32088EAC8004E8D92 /* LoadingStateViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStateViewType.swift; sourceTree = "<group>"; };
-		180750A52088ECAD004E8D92 /* LoadingControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingControllerType.swift; sourceTree = "<group>"; };
 		180750A72088EE25004E8D92 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		1840B432206D7DF300359E42 /* CursorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorResult.swift; sourceTree = "<group>"; };
 		1840B434206D7E1200359E42 /* CursorConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorConvertableType.swift; sourceTree = "<group>"; };
@@ -211,9 +205,6 @@
 				18A32AA22088C0A90059D615 /* LoadingReactor.swift */,
 				18A32AA82088CEA80059D615 /* LoadingState.swift */,
 				18A32AAA2088CF150059D615 /* LoadingAction.swift */,
-				180750A12088D408004E8D92 /* LoadingBindable.swift */,
-				180750A32088EAC8004E8D92 /* LoadingStateViewType.swift */,
-				180750A52088ECAD004E8D92 /* LoadingControllerType.swift */,
 				180750A72088EE25004E8D92 /* UIViewController+Rx.swift */,
 			);
 			path = Cursor;
@@ -508,14 +499,11 @@
 				18A32AA32088C0A90059D615 /* LoadingReactor.swift in Sources */,
 				1840B445206E62CE00359E42 /* PagedCursorEngine.swift in Sources */,
 				18A32AA52088CB2E0059D615 /* InOut.swift in Sources */,
-				180750A42088EAC8004E8D92 /* LoadingStateViewType.swift in Sources */,
 				1840B437206D7E2C00359E42 /* CursorType.swift in Sources */,
 				18A32AAF2088D1060059D615 /* InOutType.swift in Sources */,
-				180750A22088D408004E8D92 /* LoadingBindable.swift in Sources */,
 				18BA0CBD20760630007AEC8B /* ReactorType.swift in Sources */,
 				18BA0CB920727A12007AEC8B /* PagedCursor.swift in Sources */,
 				18BA0CBB20727A5C007AEC8B /* PagedCursor+Factory.swift in Sources */,
-				180750A62088ECAD004E8D92 /* LoadingControllerType.swift in Sources */,
 				18A32AA92088CEA80059D615 /* LoadingState.swift in Sources */,
 				18BA0CBF2076071D007AEC8B /* AssociatedObjectStore.swift in Sources */,
 				1840B443206E211A00359E42 /* Cursor+Factory.swift in Sources */,

@@ -15,7 +15,7 @@ class ViewReactor: ReactorType {
         return State(count: 1)
     }
     
-    func reduce(state: ViewReactor.State, mutation: ViewReactor.Action) -> ViewReactor.State {
+    func reduce(state: State, mutation: Action) -> State {
         return State(count: state.count + 1)
     }
 }

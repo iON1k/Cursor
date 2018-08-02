@@ -1,51 +1,35 @@
 
 import RxSwift
 
-public final class LoadingReactor: ReactorType {
+public final class LoadingReactor<Data>: ReactorType {
     public typealias Action = LoadingAction
-    public typealias State = LoadingState
+    public typealias State = LoadingState<Data>
+    public typealias Mutation = State
     
-    public enum Mutation {
-        case update(state: State)
+    private let loadingEngine: Single<Data>
+    
+    init(loadingEngine: Single<Data>) {
+        self.loadingEngine = loadingEngine
     }
     
-    private let loadingObservable: Completable
-    
-    init(loadingObservable: Completable) {
-        self.loadingObservable = loadingObservable
-    }
-    
-    public var initialState: State {
+    public var initialState: State  {
         return .initial
     }
     
     public func mutate(action: Action) -> Observable<Mutation> {
-        return state
-            .take(1)
-            .flatMap { [weak self] state -> Observable<Mutation> in
-                guard let strongSelf = self else {
-                    return Observable.empty()
-                }
-                
-                switch state {
-                case .initial, .failed:
-                    return strongSelf
-                        .loadingObservable
-                        .andThen(Observable.just(.update(state: .completed)))
-                        .startWith(.update(state: .inProcess))
-                        .catchError { error in
-                            return Observable.just(.update(state: .failed(error: error)))
-                        }
-                case .inProcess, .completed:
-                    return Observable.empty()
-                }
-            }
+        switch state {
+        case .initial, .failed:
+            return loadingEngine
+                .asObservable()
+                .map { State.completed(data: $0) }
+                .startWith(.inProcess)
+                .catchError { .just(.failed(error: $0)) }
+        case .inProcess, .completed:
+            return .empty()
+        }
     }
     
     public func reduce(state: State, mutation: Mutation) -> State {
-        switch mutation {
-        case let .update(newState):
-            return newState
-        }
+        return mutation
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2018 iON1k. All rights reserved.
 //
 
-public enum CursorResult<TItem> {
+public enum CursorResult<Item> {
     case notLoaded
-    case item(TItem)
+    case item(Item)
 }

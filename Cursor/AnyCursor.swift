@@ -1,8 +1,7 @@
 
 import RxSwift
 
-public final class AnyCursor<TItem> {
-    public typealias Item = TItem
+public final class AnyCursor<Item> {
     public typealias ItemsObservableGetter = () -> Observable<[CursorResult<Item>]>
     public typealias ItemsLoader = (Int) -> Single<Item?>
     

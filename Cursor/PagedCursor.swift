@@ -1,9 +1,8 @@
 
 import RxSwift
 
-public final class PagedCursor<TItem>: CursorType {
-    public typealias Item = TItem
-    typealias Page = [TItem]
+public final class PagedCursor<Item>: CursorType {
+    typealias Page = [Item]
     
     private let scheduler: SerialDispatchQueueScheduler
     private let sourceCursor: Cursor<Page>

@@ -1,8 +1,7 @@
 
 import RxSwift
 
-public final class Cursor<TItem>: CursorType {
-    public typealias Item = TItem
+public final class Cursor<Item>: CursorType {
     public typealias SourceFactory = (Int) -> Observable<Item?>
     
     private let sourceFactory: SourceFactory

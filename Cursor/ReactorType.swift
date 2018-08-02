@@ -1,24 +1,7 @@
-
 import RxSwift
-
-public enum ReactorStateTransition<State, Mutation> {
-    case initial(state: State)
-    case update(state: State, mutation: Mutation)
-    
-    var state: State {
-        switch self {
-        case let .initial(state):
-            return state
-        case let .update(state, _):
-            return state
-        }
-    }
-}
 
 public protocol ReactorType: class, AssociatedObjectStore, InOutConvertibleType {
     associatedtype Mutation = Action
-    
-    typealias StateTransition = ReactorStateTransition<State, Mutation>
     
     var initialState: State { get }
     
@@ -31,6 +14,4 @@ public protocol ReactorType: class, AssociatedObjectStore, InOutConvertibleType 
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation>
     
     func reduce(state: State, mutation: Mutation) -> State
-    
-    func transform(stateTransition: Observable<StateTransition>) -> Observable<StateTransition>
 }
